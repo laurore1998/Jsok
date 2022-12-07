@@ -1,0 +1,68 @@
+
+//add true in variable debug for debuging program
+let debug=false
+
+function log(a){
+
+	if(debug)		
+		console.log(a)
+	
+}
+
+const countryArray = ["Haiti", "France", "United States", "Belgium", "Canada", "Jamaica", "Mexico", "Brazil", "Nigeria"];
+
+let list = document.querySelector('ul')
+let button=document.querySelector('#button')
+
+
+
+
+
+
+let coch=[]
+let addCountry = countryArray.map(function(element){
+    
+    // list.append(document.createElement('input').setAttribute('type','checkbox').setAttribute('name',`${element}`))
+    let a=document.createElement('li')
+    let b=document.createElement('input')
+    b.setAttribute('type','checkbox')
+    b.setAttribute('name',`${element}`)
+    a.innerHTML=`${element}`
+    a.append(b)
+    
+    list.append(a)
+
+    coch.push(b)
+    
+
+    //console.log(element)
+
+
+    return element;
+});
+
+// let arr = [3, 4, 5, 6];
+
+// let modifiedArr = arr.map(function(element){
+//     return element *3;
+// });
+
+
+
+log(addCountry.join(" "));
+let buttonChecked=[]
+button.onclick=function(e) {
+
+    for(let el in coch){
+
+        if(coch[el].checked==true){
+
+            buttonChecked.push(countryArray[el])
+
+            log(countryArray[el])
+        }
+    } 
+    
+}
+log(buttonChecked.join(" "))
+log(coch)
