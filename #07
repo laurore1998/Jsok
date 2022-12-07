@@ -1,0 +1,30 @@
+let debug=true
+function log(a){
+
+	if(debug)		
+		console.log(a)
+	
+}
+let num=document.querySelector('input')
+
+num.onkeydown=function(e) {
+
+    let v=e.which || e.keycode;
+    log(e.which)
+    log(e.keycode)
+    log(e.target.value.length)
+        if((v>=48 && v<=57) || v==8){
+
+            return true
+        }else if(e.target.value.length>8){
+
+            num.maxLength=8;
+            return false
+
+        }else{
+
+            return false
+        }
+
+        
+}
