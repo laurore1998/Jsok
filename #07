@@ -1,3 +1,9 @@
+
+
+
+
+
+
 let debug=true
 function log(a){
 
@@ -8,7 +14,7 @@ function log(a){
 let num=document.querySelector('input')
 
 num.onkeydown=function(e) {
-
+    num.maxLength=8;
     let v=e.which || e.keycode;
     log(e.which)
     log(e.keycode)
@@ -16,9 +22,9 @@ num.onkeydown=function(e) {
         if((v>=48 && v<=57) || v==8){
 
             return true
-        }else if(e.target.value.length>8){
+        }else if(e.target.value.length>num.maxLength){
 
-            num.maxLength=8;
+            
             return false
 
         }else{
