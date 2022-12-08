@@ -1,0 +1,20 @@
+let input=document.querySelectorAll('input')
+let button=document.querySelector('button')
+
+
+
+let i=0
+input[i].focus()
+input[i].style.borderColor='#0275d8'
+i=1
+button.onclick=(e)=>{
+
+
+    input[i].focus()
+    input[i].style.borderColor='#0275d8'
+
+    i==input.length-1?i=0:i++;
+        
+    
+    
+}
