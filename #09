@@ -1,0 +1,35 @@
+
+let debug = true
+
+function log(a) {
+
+    if (debug)
+        console.log(a)
+
+}
+
+let event = document.querySelector('input[name=event-name]')
+let but = document.querySelector('#action')
+
+// let myEvent = new Event(`${event.value}`)
+let myEvent = new Event(event.value)
+
+but.dispatchEvent(myEvent)
+
+
+event.addEventListener('keydown', (e) => {
+
+    //log(` ${e.which} et ${e.keyCode}`)
+    let ok = e.which || e.keyCode
+
+    if (ok===13) {
+
+        but.addEventListener('click', (e) => {
+
+            log(`Evènman sa valid. Se ${myEvent}`)
+        })
+    }
+
+
+
+})
