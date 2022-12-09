@@ -1,0 +1,35 @@
+// html 
+// <div id="timer" value="9">9</div>       
+// <button id="start" class="button">Démarrer</button>
+
+let time = document.getElementById("timer");
+let startBtn = document.getElementById("start");
+
+let secondes = 9;
+let timeout;
+
+const start = () => {
+
+    defilerTemps();
+
+};
+
+const defilerTemps = () => {
+    
+    secondes--;
+
+
+    if (secondes <= 0) {
+        secondes=0
+        time.innerHTML= "tan an fini"
+        
+    }else{
+
+        time.innerHTML = `${secondes}`;
+    }
+
+    timeout = setTimeout(defilerTemps, 1000);
+};
+
+startBtn.addEventListener("click", start);
+
