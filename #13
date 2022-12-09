@@ -1,0 +1,84 @@
+
+
+    //contents html
+    // <main>
+    // <button>Get data</button>
+    // <div class="data-wrapper">
+    //     <table>
+    //         <thead>
+    //             <tr>
+    //                 <th>
+    //                     Tit
+    //                 </th>
+    //                 <th>
+    //                     Complete
+    //                 </th>
+    //                 <th>
+    //                     ID
+    //                 </th>
+    //             </tr>
+    //         </thead>
+    //         <tbody>
+
+    //         </tbody>
+    //     </table>
+    // </div>
+
+    // <main>
+
+
+
+debug = true
+log = (a) => {
+    if (debug) {
+        console.log(a)
+    }
+}
+
+let but = document.querySelector('button')
+let receiveData = document.querySelector('tbody')
+
+var requestURL = 'https://jsonplaceholder.typicode.com/todos';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+request.onload = function () {
+    var todo = request.response;
+    log(todo.length)
+    but.onclick = () => {
+        todos(todo, todo.length);
+    }
+
+}
+
+todos = (todo, num) => {
+
+    for (let index = 0; index < num; index++) {
+        let linTable = document.createElement('tr')
+
+        let titlecolum = document.createElement('td')
+        titlecolum.innerHTML = todo[index].title
+        linTable.append(titlecolum)
+
+        let compcolum = document.createElement('td')
+        let check = document.createElement('input')
+        check.setAttribute('type', 'checkbox')
+        if (todo[index].completed === true) {
+
+            check.setAttribute('checked', '')
+        }
+
+        compcolum.append(check)
+        linTable.append(compcolum)
+
+        let id = document.createElement('td')
+        id.innerHTML = todo[index].id
+        linTable.append(id)
+
+        receiveData.append(linTable)
+
+    }
+
+}
