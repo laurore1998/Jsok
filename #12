@@ -21,7 +21,7 @@ const defilerTemps = () => {
 
     if (secondes <= 0) {
         secondes=0
-        time.innerHTML= "tan an fini"
+        time.innerHTML= "time out"
         
     }else{
 
